@@ -7,7 +7,7 @@ fichier_un = open("kittens.in", "r")
 fichier_deux = open("me_at_the_zoo.in", "r")
 fichier_trois = open("trending_today.in","r")
 fichiers_quatre = open("videos_worth_spreading.in","r")
-fichier = fichier_un
+fichier = fichier_deux
 first_line = fichier.readline() + " "
 second_line = fichier.readline() + " "
 
@@ -99,17 +99,31 @@ while(len(endpoint_info) == 2):
 #print endpointS[0]
 
 
-
+requestS = [endpoint_info]
 ## actualisation de current_endpoint
 request_info_string = fichier.readline() + " "
-request_info_tab =  getSIMPLIER(request_info_string)
-print request_info
+current_request_tab =  getSIMPLIER(request_info_string)
 
 
+while(len(current_request_tab) == 3):
+    #print "test "
+    requestS.append(current_request_tab)
+    
+    request_info_string = fichier.readline() + " "
+    s = request_info_string
+    #print request_info_string
+    current_request_tab =[]
+    j = 0
+    if s != " ":
+        for i in range(len(s)):
+            if s[i] == " ":
+                current_request_tab.append(int(s[j:i]))
+                j = i
 
+#print current_request_tab
+#   print len(current_request_tab)
 
-#while(len(endpoint_info) == 3):
-
+print requestS
 
     
     
