@@ -1,8 +1,7 @@
-V
+V= []
 
-C
-
-T
+C = []
+T = []
 
 ##
 "initialise C"
