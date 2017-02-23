@@ -168,28 +168,31 @@ C=[taille_cache for i in range(nb_cache)]
 
 ##
 nb_poss = len(T)
-R=[[] for i in range (nb_cache)]
+R=[]
 for i in range(nb_poss):
 	if ((C[T[i][3]]> V[T[i][1]]) and (T[T[i][4]]==0)):
-		R[T[i][3]].append(T[i][1])
-		T[i][4]=1
-		for k in range(i+1,nb_poss):
+        
+		R.append(T[i][1])
+        C[T[i][3]] -= V[T[i][1]]
+        T[i][4] = 1
+        for k in range(i+1,nb_poss):
 			if ((T[i][1]==T[k][1] and T[i][2]==T[k][2]) or (T[i][1]==T[k][1] and T[i][3]==T[k][3])):
-				T[i][4]==1
+                T[i][4] = 1
 ##
 "on calcule l"
 l=0
+print R
 for i in range(nb_cache):
 	if len(R[i])>1:
 		l+=1
 ##
 "on, cree le fichier"
-
+print R
 f=open('test2.txt','w')
 f.write(str(l)+" \n")
 for i in range(len(R)):
     print "test "
-    if (len(R[i])>1)):
+    if (len(R[i])>1):
 		for j in range(1,len(R[i])):
             #print (str(R[i][j]))
 			f.write(str(R[i][j] + " "))
