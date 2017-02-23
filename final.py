@@ -175,9 +175,9 @@ for i in range(nb_poss):
 		R.append(T[i][1])
         C[T[i][3]] -= V[T[i][1]]
         T[i][4] = 1
-        for k in range(i+1,nb_poss):
-			if ((T[i][1]==T[k][1] and T[i][2]==T[k][2]) or (T[i][1]==T[k][1] and T[i][3]==T[k][3])):
-                T[i][4] = 1
+        for k in range( i+1 , nb_poss) :
+		if ( ( T[i][1] == T[k][1] and T[i][2] == T[k][2] )  or ( T[i][1] == T[k][1] and T[i][3] == T[k][3] )) :
+                	T[i][4] = 1
 ##
 "on calcule l"
 l=0
